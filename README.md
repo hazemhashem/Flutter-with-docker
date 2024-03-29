@@ -12,11 +12,11 @@ This project demonstrates how to deploy a Flutter web application using Docker C
 1. Clone the repository:
 
    ```bash
-   git clone 
+   git clone https://github.com/hazemhashem881/Flutter-with-docker.git
 
 2. Navigate to the project directory:
    ```bash
-   cd 
+   cd Flutter-with-docker
 
 3. Build and run the containers:
    ```bash
