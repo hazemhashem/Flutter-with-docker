@@ -1,0 +1,22 @@
+version: '3'
+services:
+  flutter_app:
+    build: 
+      context: .
+      dockerfile: flutter_web_with_dockerr
+    volumes:
+      - ./app:/home/app 
+      - ./build/web:/home/app/build/web        
+    stdin_open: true
+    tty: true
+
+  nginx1:
+    image: nginx:latest
+    ports:
+      - "83:80"
+    volumes:
+      - ./build/web:/usr/share/nginx/html
+    depends_on:
+      - flutter_app
+
+

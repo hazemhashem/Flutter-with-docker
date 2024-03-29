@@ -1,0 +1,28 @@
+FROM ubuntu:latest 
+
+
+RUN apt-get update && \
+    apt-get install -y curl git wget unzip libgconf-2-4 gdb  libgtk-3-dev cmake libstdc++6 libglu1-mesa fonts-droid-fallback lib32stdc++6 python3 && \
+    apt-get clean
+
+
+RUN git clone https://github.com/flutter/flutter.git /usr/local/flutter
+
+
+ENV PATH="/usr/local/flutter/bin:/usr/local/flutter/bin/cache/dart-sdk/bin:${PATH}"
+
+
+
+
+WORKDIR /usr/local/flutter
+
+
+RUN flutter channel master && \
+    flutter upgrade && \
+    flutter config --enable-web
+
+
+RUN mkdir /home/app/
+
+
+WORKDIR /home/app/
